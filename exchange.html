@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Echo Health — token exchange</title>
+</head>
+<body>
+<p>Exchanging code for tokens…</p>
+<form id="f" method="POST" action="https://oauth2.googleapis.com/token">
+<input type="hidden" name="grant_type" value="authorization_code">
+<input type="hidden" name="code" id="code" value="">
+<input type="hidden" name="client_id" value="376332439436-atk2vsp2eheauhbg87nu2vtod2c1kspn.apps.googleusercontent.com">
+<input type="hidden" name="client_secret" id="secret" value="">
+<input type="hidden" name="redirect_uri" value="https://sottti.github.io/echo-health-privacy/callback.html">
+</form>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  document.getElementById("code").value = q.get("code") || "";
+  document.getElementById("secret").value = q.get("client_secret") || "";
+  document.getElementById("f").submit();
+})();
+</script>
+</body>
+</html>
